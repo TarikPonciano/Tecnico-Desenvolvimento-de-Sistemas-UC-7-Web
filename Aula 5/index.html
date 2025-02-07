@@ -20,7 +20,14 @@
         <label class="rotuloFormulario">Segundo número:</label>
         <input type="number" class="campoTextoFormulario" id="campoNumero2">
         <br>
-        <!-- Adicione um novo campo do tipo select que possui a lista de operações possíveis dessa calculadora (Soma, Subtração, Multiplicação, Divisão) Dica: O primeiro elemento do Select é uma instrução "Escolha a operação" Dica2: Veja como é feito com RADIO button-->
+        <!--Adicione um novo campo do tipo select que possui a lista de operações possíveis dessa calculadora (Soma, Subtração, Multiplicação, Divisão) Dica: O primeiro elemento do Select é uma instrução "Escolha a operação" Dica2: Veja como é feito com RADIO button-->
+        <select id="operacaoSelecionada">
+            <option value="escolha">Escolha uma operação</option>
+            <option value="soma">Soma</option>
+            <option value="subtracao">Subtração</option>
+            <option value="divisao">Divisão</option>
+            <option value="multiplicação">Multiplicação</option>
+        </select>
         <!-- Tentar centralizar o botão em relação aos outros componentes -->
         <button type="submit" style="display: block; margin: auto;" onclick="fazerCalculo()"> Calcular </button>
         
