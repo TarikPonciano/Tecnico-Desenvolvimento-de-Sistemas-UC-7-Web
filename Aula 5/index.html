@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,24 @@
     <link rel="stylesheet" href="styles.css">
     <script src="index.js"></script>
 </head>
+
 <body>
     <h1>Minha Calculadora</h1>
 
     <div style="background-color: red; width: 50%;">
-    <!-- Separar os campos utilizando css -->
-    <label class="rotuloFormulario">Primeiro número: </label>
-    <input type="number" class="campoTextoFormulario">
-    <br>
-    <label class="rotuloFormulario">Segundo número:</label>
-    <input type="number" class="campoTextoFormulario">
-    <br>
-    <!-- Tentar centralizar o botão em relação aos outros componentes -->
-    <button type="submit" style="display: block; margin: auto;"> Calcular </button>
-</div>
+        <!-- Separar os campos utilizando css -->
+        <label class="rotuloFormulario">Primeiro número: </label>
+        <input type="number" class="campoTextoFormulario" id="campoNumero1">
+        <br>
+        <label class="rotuloFormulario">Segundo número:</label>
+        <input type="number" class="campoTextoFormulario" id="campoNumero2">
+        <br>
+        <!-- Tentar centralizar o botão em relação aos outros componentes -->
+        <button type="submit" style="display: block; margin: auto;" onclick="fazerCalculo()"> Calcular </button>
+    </div>
 
-    
-    
+
+
 </body>
+
 </html>
