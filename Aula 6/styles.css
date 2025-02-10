@@ -36,6 +36,14 @@ body {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
+    gap:10px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
