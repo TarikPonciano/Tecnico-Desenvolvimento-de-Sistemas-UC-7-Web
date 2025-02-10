@@ -1,0 +1,21 @@
+h1 {
+    color: red;
+}
+.cartao-visita{
+    background-color: rgb(130, 138, 223);
+    width: 50%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: chartreuse;
+    border-radius: 6px;
+    
+}
+#campo-autor{
+    color: coral;
+    text-align: end;
+    margin-right: 10px;
+}
+
+button:hover{
+    background-color: brown;
+}
