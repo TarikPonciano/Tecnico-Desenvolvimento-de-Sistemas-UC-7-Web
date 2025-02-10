@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,44 @@
     <link rel="stylesheet" href="styles.css">
     <script src="index.js"></script>
 </head>
+
 <body>
 
     <!-- Criar uma página para receber um formulário de Cadastro de Tarefas. Esse formulário deverá ser uma página centralizada que ocupa 75% da largura da página, onde o fundo da página principal deverá ser {você escolhe a cor}. Nesse formulário teremos os campos Nome da Tarefa, Descrição da Tarefa, Situação da Tarefa, Autor, Data e botões para enviar e limpar. Na sequência iremos exibir as tarefas cadastradas. -->
 
-    <div class = "container">
-        <h1 class = "titulo"> Get It D😎ne </h1>
-        
+    <div class="container">
+        <h1 class="titulo"> Get It D😎ne </h1>
+
         <form class="formulario" id="formularioNovaTarefa" onsubmit="alert('Tarefa Cadastrada')">
 
             <label class="rotulo" for="campoNomeTarefa">Nome da Tarefa</label>
-            <input type="text" id="campoNomeTarefa" name="nomeTarefa">
+            <input type="text" id="campoNomeTarefa" name="nomeTarefa" placeholder="Digite o nome da tarefa...">
 
             <label class="rotulo" for="campoDescricaoTarefa">Descrição</label>
-            <textarea id="campoDescricaoTarefa" name="descricaoTarefa"></textarea>
+            <textarea id="campoDescricaoTarefa" name="descricaoTarefa" placeholder="Digite a descrição da tarefa..."></textarea>
 
+            <label>Situação</label>
+            <div class="radio-group">
+                <label><input type="radio" name="selecaoTarefa" value="pendente" checked>Pendente</label>
+                <label><input type="radio" name="selecaoTarefa" value="concluido">Concluído</label>
+                <label><input type="radio" name="selecaoTarefa" value="cancelado">Cancelado</label>
+            </div>
+
+            <label class="rotulo" for="campoAutorTarefa">Autor</label>
+            <input type="text" name="autorTarefa" id="campoAutorTarefa">
+
+            <label class="rotulo" for="campoDataTarefa">Data</label>
+            <input type="date" name="dataTarefa" id="campoDataTarefa">
+
+            <div class="botoes-form">
+                <button type="submit"> Enviar </button>
+                <button type="reset"> Limpar </button>
+            </div>
         </form>
 
         <div></div>
     </div>
 
 </body>
+
 </html>
