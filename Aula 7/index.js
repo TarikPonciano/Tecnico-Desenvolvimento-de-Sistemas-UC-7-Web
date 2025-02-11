@@ -6,7 +6,7 @@ function cadastrarTarefa(event){
     const dataTarefa = document.getElementById("campoDataTarefa").value
     
     // Solução 2 - Moderna
-    const situacaoFinal = document.querySelector("input[type='radio']:checked").value
+    const situacaoFinal = document.querySelector(".radio-group input[type='radio']:checked").value
 
     // Solução 1
     const listaRadio = document.getElementsByName("selecaoTarefa")
