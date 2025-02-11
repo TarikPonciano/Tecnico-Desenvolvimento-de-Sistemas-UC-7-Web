@@ -19,31 +19,46 @@
         <form class="formulario" id="formularioNovaTarefa" onsubmit="cadastrarTarefa(event)">
 
             <div class="campo">
-                <label class="rotulo" for="campoNomeTarefa">Nome da Tarefa</label>
+                <label class="rotulo" for="campoNomeTarefa">Nome</label>
                 <input type="text" id="campoNomeTarefa" name="nomeTarefa" placeholder="Digite o nome da tarefa...">
             </div>
 
-            <label class="rotulo" for="campoDescricaoTarefa">Descrição</label>
-            <textarea id="campoDescricaoTarefa" name="descricaoTarefa"
-                placeholder="Digite a descrição da tarefa..."></textarea>
-
-            <label>Situação</label>
-            <div class="radio-group">
-                <label><input type="radio" name="selecaoTarefa" value="pendente" checked>Pendente</label>
-                <label><input type="radio" name="selecaoTarefa" value="concluido">Concluído</label>
-                <label><input type="radio" name="selecaoTarefa" value="cancelado">Cancelado</label>
+            <div class="campo">
+                <label class="rotulo" for="campoDescricaoTarefa">Descrição</label>
+                <textarea id="campoDescricaoTarefa" name="descricaoTarefa"
+                    placeholder="Digite a descrição da tarefa..."></textarea>
             </div>
 
-            <label class="rotulo" for="campoAutorTarefa">Autor</label>
-            <input type="text" name="autorTarefa" id="campoAutorTarefa">
 
-            <label class="rotulo" for="campoDataTarefa">Data</label>
-            <input type="date" name="dataTarefa" id="campoDataTarefa">
+            <div class="campo">
+                <label>Situação</label>
+                <div class="radio-group">
+                    <input type="radio" id="pendente" name="selecaoTarefa" value="pendente" checked>
+                    <label for="pendente">Pendente</label>
+
+                    <input type="radio" id="concluido" name="selecaoTarefa" value="concluido">
+                    <label for="concluido">Concluído</label>
+
+                    <input type="radio" id="cancelado" name="selecaoTarefa" value="cancelado">
+                    <label for="cancelado">Cancelado</label>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label class="rotulo" for="campoAutorTarefa">Autor</label>
+                <input type="text" name="autorTarefa" id="campoAutorTarefa">
+            </div>
+
+            <div class="campo">
+                <label class="rotulo" for="campoDataTarefa">Data</label>
+                <input type="date" name="dataTarefa" id="campoDataTarefa">
+            </div>
 
             <div class="botoes-form">
                 <button type="submit"> Enviar </button>
                 <button type="reset"> Limpar </button>
             </div>
+
         </form>
 
         <div></div>
