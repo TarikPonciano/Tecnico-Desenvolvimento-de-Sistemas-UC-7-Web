@@ -7,10 +7,6 @@ function cadastrarFuncionario(event){
     const selecaoEstado = document.getElementById("selecaoEstados") 
     const radioEstadoCivil = document.querySelector("input[type='radio']:checked")
     
-    if (!campoCpf.value){
-        alert("CPF Não inserido")
-        return
-    }
     
     alert(`
         Nome: ${campoNome.value} \n
@@ -24,7 +20,7 @@ function cadastrarFuncionario(event){
     const novoFuncionario = document.createElement("div")
     novoFuncionario.innerHTML = `
         <p>Nome: ${campoNome.value}</p> \n
-        CPF: ${campoCpf.value} \n
+        <p class="vermelho">CPF: ${campoCpf.value}</p> \n
         Data: ${campoData.value} \n
         Cargo: ${selecaoCargo.value} \n
         Estado: ${selecaoEstado.value} \n
