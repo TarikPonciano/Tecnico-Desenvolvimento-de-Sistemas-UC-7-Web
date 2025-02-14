@@ -29,6 +29,32 @@ function cadastrarFuncionario(event){
     
     document.getElementById("formularioNovoFuncionario").reset()
 
+}
 
-    
+
+function realizarLogin(){
+    const campoUsuario = document.getElementById("campoUsuario")
+
+    const campoSenha = document.getElementById("campoSenha")
+
+    if(!campoUsuario.value || !campoSenha.value){
+        alert("Você deve digitar usuário e senha!")
+        return
+    }
+
+    if(campoUsuario.value != "admin"){
+        alert("Usuário não encontrado!")
+        return
+    }
+
+    if(campoSenha.value != "123456"){
+        alert("Senha incorreta!")
+        return
+    }
+
+    alert("Seja bem vindo, admin! Login efetuado com sucesso.")
+
+    window.location.href = "cadastroForm.html"
+
+
 }
