@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionários</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <!-- Criar uma página de formulário para cadastro de funcionários
+    O cadastro deverá conter as seguintes informações (utilize as tags que considerar adequadas):
+    1. Nome
+    2. CPF
+    3. Data de Nascimento
+    4. Cargo (Vendedor, Gerente, Analista, Outros)
+    5. Estado
+    6. Estado Civil (Solteiro, Casado, Viúvo, Divorciado)
+    O formulário deverá conter um botão de Enviar e um botão de Limpar
+    Ao realizar o envio, o formulário deverá ser zerado, e deverá ser exibido um alert ou um elemento na página mostrando as informações do funcionário cadastrado.
+    REALIZAR VALIDAÇÕES DOS CAMPOS -->
+    <div class="container">
+        <h1>CADASTRO DE FUNCIONÁRIOS</h1>
+        <form id="formularioNovoFuncionario" onsubmit="cadastrarFuncionario(event)">
+            <label>Nome: </label>
+            <input type="text" id="campoNome" name="nome" required>
+            <br>
+            <label>CPF: </label>
+            <input type="text" id="campoCpf" name="cpf">
+            <br>
+            <label>Data de Nascimento: </label>
+            <input type="date" id="campoData" name="data">
+            <br>
+            <label>Cargo: </label>
+            <select id="selecaoCargo">
+                <option value="escolha">Escolha o Cargo</option>
+                <option value="vendedor">Vendedor</option>
+                <option value="gerente">Gerente</option>
+                <option value="analista">Analista</option>
+                <option value="outro">Outro</option>
+            </select>
+            <br>
+            <label>Estado: </label>
+            <select name="estados" id="selecaoEstados">
+                <option value="escolha">Escolha seu Estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+            <br>
+            <div class="radio-group">
+                <input type="radio" name="radioEstadoCivil" value="solteiro" checked> <label>Solteiro</label>
+                <input type="radio" name="radioEstadoCivil" value="casado"><label>Casado</label>
+                <input type="radio" name="radioEstadoCivil" value="viúvo"><label>Viúvo</label>
+                <input type="radio" name="radioEstadoCivil" value="divorciado"><label>Divorciado</label>
+            </div>
+            <br>
+            
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+
+        </form>
+        
+    </div>
+    
+</body>
+</html>
