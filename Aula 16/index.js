@@ -71,7 +71,7 @@
 //     corpo.appendChild(novoItem)
 // }
 
-// const pets = ["Melzinha", "Senna", "Flora", "Polyana"]
+// let pets = ["Melzinha", "Senna", "Flora", "Polyana"]
 
 
 // pets = pets.map((pet) => {
