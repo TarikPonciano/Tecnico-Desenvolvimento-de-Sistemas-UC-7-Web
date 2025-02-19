@@ -18,11 +18,13 @@ function salvarInformacao(event){
 
 function construirLista(){
     const listaNomes = document.getElementById("listaNomes")
+    const caixa = document.createElement("div")
     nomes.forEach(nome => {
         const novoNome = document.createElement("h1")
         novoNome.textContent = nome
-        listaNomes.appendChild(novoNome)
+        caixa.appendChild(novoNome)
     });
+    listaNomes.innerHTML = caixa.innerHTML
     
 }
 
