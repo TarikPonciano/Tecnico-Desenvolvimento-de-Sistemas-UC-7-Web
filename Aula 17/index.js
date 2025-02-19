@@ -9,7 +9,7 @@ function carregarLocalStorage(){
 function salvarInformacao(event){
     event.preventDefault()
     const campoNome = document.getElementById("campoNome")
-
+    const nomes = carregarLocalStorage()
     nomes.push(campoNome.value)
     
     localStorage.setItem("nomes", JSON.stringify(nomes))
@@ -19,15 +19,14 @@ function salvarInformacao(event){
 function construirLista(){
     const listaNomes = document.getElementById("listaNomes")
     const caixa = document.createElement("div")
+    const nomes = carregarLocalStorage()
     nomes.forEach(nome => {
         const novoNome = document.createElement("h1")
         novoNome.textContent = nome
         caixa.appendChild(novoNome)
     });
     listaNomes.innerHTML = caixa.innerHTML
-    
 }
 
-const nomes = carregarLocalStorage()
 
 construirLista()
