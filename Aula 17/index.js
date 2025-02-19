@@ -6,7 +6,7 @@ function carregarLocalStorage(){
         return []
     }
 }
-function salvarInformacao(){
+function salvarInformacao(event){
     event.preventDefault()
     const campoNome = document.getElementById("campoNome")
 
@@ -18,7 +18,12 @@ function salvarInformacao(){
 
 function construirLista(){
     const listaNomes = document.getElementById("listaNomes")
-    listaNomes.innerHTML = nomes
+    nomes.forEach(nome => {
+        const novoNome = document.createElement("h1")
+        novoNome.textContent = nome
+        listaNomes.appendChild(novoNome)
+    });
+    
 }
 
 const nomes = carregarLocalStorage()
