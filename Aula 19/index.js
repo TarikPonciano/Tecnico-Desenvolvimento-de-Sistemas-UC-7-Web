@@ -37,7 +37,11 @@ function adicionarProduto(id){
     //     break
     //   }
     // }
-
+    if (!produtoSelecionado){
+      alert("PRODUTO NÃO EXISTE")
+      return
+    }
+    
     carrinho.push(produtoSelecionado)
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho))
