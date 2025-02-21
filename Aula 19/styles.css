@@ -3,7 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .container{
@@ -79,6 +79,7 @@ body{
 }
 
 .botao-adicionar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     background-color: green;
     font-size: 24px;
@@ -93,6 +94,7 @@ body{
 }
 
 .botao-carrinho{
+    
     text-decoration: none;
     font-size: 24px;
     position: fixed;
