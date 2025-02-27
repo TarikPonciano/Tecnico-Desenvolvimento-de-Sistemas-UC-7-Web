@@ -7,6 +7,7 @@ const __dirName = path.resolve()
 
 app.use(express.static(path.join(__dirName,"public")))
 
+// Criar as páginas home.html, login.html, admin.html e inserir.html e implementar suas rotas no servidor
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirName,"home.html"))
 })
