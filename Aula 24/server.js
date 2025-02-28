@@ -1,9 +1,11 @@
 // Importar dependências
 // 1. express
 // 2. path
+// 3. fs
 
 import express from "express";
 import path from "path";
+import fs from "fs";
 
 //Configurar e criar o servidor
 
@@ -20,11 +22,30 @@ const __dirName = path.resolve();
 
 //Tornar público css e arquivos js
 app.use(express.static(path.join(__dirName, "public")))
+app.use(express.json())
 
 //Configuração de rota de comunicação com o servidor
 app.get("/", (req, res) =>{
     res.sendFile(path.join(__dirName, "home.html"))
 })
+
+app.get("/admin", (req, res) =>{
+    res.sendFile(path.join(__dirName, "admin.html"))
+})
+
+//Configuração de rota da api
+
+app.get("/api/items", (req,res) =>{
+    fs.readFile(path.join(__dirName, "data", "items.json"), "utf8", (err, data) => {
+        if (err){
+            res.status(500).send("Erro ao ler os dados!")
+        }else{
+            res.status(200).json(JSON.parse(data))
+        }
+
+    })
+}
+)
 
 //Inicializar o servidor
 app.listen(port, () => {

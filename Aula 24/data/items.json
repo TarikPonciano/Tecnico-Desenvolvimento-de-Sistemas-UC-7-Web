@@ -1,0 +1,46 @@
+[
+    {
+        "model": "iPhone 13",
+        "brand": "Apple",
+        "price": 799,
+        "specs": {
+            "screen_size": "6.1 inches",
+            "storage": "128GB",
+            "camera": "12MP",
+            "battery": "3240mAh"
+        }
+    },
+    {
+        "model": "Galaxy S21",
+        "brand": "Samsung",
+        "price": 699,
+        "specs": {
+            "screen_size": "6.2 inches",
+            "storage": "128GB",
+            "camera": "64MP",
+            "battery": "4000mAh"
+        }
+    },
+    {
+        "model": "Pixel 6",
+        "brand": "Google",
+        "price": 599,
+        "specs": {
+            "screen_size": "6.4 inches",
+            "storage": "128GB",
+            "camera": "50MP",
+            "battery": "4614mAh"
+        }
+    },
+    {
+        "model": "OnePlus 9",
+        "brand": "OnePlus",
+        "price": 729,
+        "specs": {
+            "screen_size": "6.55 inches",
+            "storage": "128GB",
+            "camera": "48MP",
+            "battery": "4500mAh"
+        }
+    }
+]
