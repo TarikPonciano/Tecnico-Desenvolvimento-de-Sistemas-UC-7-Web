@@ -11,8 +11,21 @@
 <body>
     <div class="container">
         <h1>Área Administrativa</h1>
-        
+        <form id="addNewItem" onsubmit="addItem(event)">
+            <label>Modelo:</label>
+            <input type="text" id="campoModelo" name="modelo">
+
+            <label>Marca:</label>
+            <input type="text" id="campoMarca" name="marca">
+
+            <label>Preço:</label>
+            <input type="number" id="campoPreco" name="preco">
+
+            <button type="submit"> Enviar </button>
+            <button type="reset"> Limpar </button>
+        </form>
     </div>
+    <script src="/js/admin.js"></script>
 </body>
 
 </html>

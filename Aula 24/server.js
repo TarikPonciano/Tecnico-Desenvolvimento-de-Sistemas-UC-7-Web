@@ -47,6 +47,28 @@ app.get("/api/items", (req,res) =>{
 }
 )
 
+app.post("/api/items", (req,res) =>{
+    const novoItem = req.body
+
+    fs.readFile(path.join(__dirName, "data", "items.json"), "utf8", (err, data) => {
+        if (err){
+            res.status(500).send("Erro ao ler os dados!")
+        }else{
+            const items = JSON.parse(data)
+            items.push(novoItem)
+            fs.writeFile(path.join(__dirName, "data", "items.json"), JSON.stringify(items), (err) =>{
+                if (err){
+                    res.status(500).send("Erro ao inserir informação.")
+                }else{
+                    res.status(201).send("Item inserido com sucesso!")
+                }
+            })
+        }
+
+    })
+
+})
+
 //Inicializar o servidor
 app.listen(port, () => {
     console.log(`Servidor inicializado no endereço http://localhost:${port}`)
