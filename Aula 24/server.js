@@ -56,7 +56,7 @@ app.post("/api/items", (req,res) =>{
         }else{
             const items = JSON.parse(data)
             items.push(novoItem)
-            fs.writeFile(path.join(__dirName, "data", "items.json"), JSON.stringify(items), (err) =>{
+            fs.writeFile(path.join(__dirName, "data", "items.json"), JSON.stringify(items,null,2), (err) =>{
                 if (err){
                     res.status(500).send("Erro ao inserir informação.")
                 }else{

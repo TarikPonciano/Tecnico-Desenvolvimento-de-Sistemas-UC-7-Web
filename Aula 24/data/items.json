@@ -1,1 +1,86 @@
-[{"model":"iPhone 13","brand":"Apple","price":799,"specs":{"screen_size":"6.1 inches","storage":"128GB","camera":"12MP","battery":"3240mAh"}},{"model":"Galaxy S21","brand":"Samsung","price":699,"specs":{"screen_size":"6.2 inches","storage":"128GB","camera":"64MP","battery":"4000mAh"}},{"model":"Pixel 6","brand":"Google","price":599,"specs":{"screen_size":"6.4 inches","storage":"128GB","camera":"50MP","battery":"4614mAh"}},{"model":"OnePlus 9","brand":"OnePlus","price":729,"specs":{"screen_size":"6.55 inches","storage":"128GB","camera":"48MP","battery":"4500mAh"}},{"model":"Poco X5","brand":"Xiaomi","price":"300"},{"model":"Poco X6","brand":"Xiaomi","price":"400"},{"model":"Poco X7","brand":"Xiaomi","price":"500"},{"model":"Poco X8","brand":"Xiaomi","price":"1000"},{"model":"Poco X12","brand":"Xiaomi","price":"1500"}]
+[
+  {
+    "model": "iPhone 13",
+    "brand": "Apple",
+    "price": 799,
+    "specs": {
+      "screen_size": "6.1 inches",
+      "storage": "128GB",
+      "camera": "12MP",
+      "battery": "3240mAh"
+    }
+  },
+  {
+    "model": "Galaxy S21",
+    "brand": "Samsung",
+    "price": 699,
+    "specs": {
+      "screen_size": "6.2 inches",
+      "storage": "128GB",
+      "camera": "64MP",
+      "battery": "4000mAh"
+    }
+  },
+  {
+    "model": "Pixel 6",
+    "brand": "Google",
+    "price": 599,
+    "specs": {
+      "screen_size": "6.4 inches",
+      "storage": "128GB",
+      "camera": "50MP",
+      "battery": "4614mAh"
+    }
+  },
+  {
+    "model": "OnePlus 9",
+    "brand": "OnePlus",
+    "price": 729,
+    "specs": {
+      "screen_size": "6.55 inches",
+      "storage": "128GB",
+      "camera": "48MP",
+      "battery": "4500mAh"
+    }
+  },
+  {
+    "model": "Poco X5",
+    "brand": "Xiaomi",
+    "price": "300"
+  },
+  {
+    "model": "Poco X6",
+    "brand": "Xiaomi",
+    "price": "400"
+  },
+  {
+    "model": "Poco X7",
+    "brand": "Xiaomi",
+    "price": "500"
+  },
+  {
+    "model": "Poco X8",
+    "brand": "Xiaomi",
+    "price": "1000"
+  },
+  {
+    "model": "Poco X12",
+    "brand": "Xiaomi",
+    "price": "1500"
+  },
+  {
+    "model": "S53",
+    "brand": "Samsung",
+    "price": "5000"
+  },
+  {
+    "model": "galaxy 20 fe",
+    "brand": "samsung",
+    "price": "2500"
+  },
+  {
+    "model": "geladeira ",
+    "brand": "eletrolux",
+    "price": "40000"
+  }
+]
