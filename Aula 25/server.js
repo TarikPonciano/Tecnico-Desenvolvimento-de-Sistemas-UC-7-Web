@@ -7,8 +7,12 @@ const _dirName = path.resolve()
 
 app.use(express.static(path.join(_dirName, "public")))
 
-app.get("/", (req, res) => {
+app.get("/views/home", (req, res) => {
     res.sendFile(path.join(_dirName, "views", "home.html"))
+})
+
+app.get("/views/admin", (req, res) => {
+    res.sendFile(path.join(_dirName, "views", "admin.html"))
 })
 
 
