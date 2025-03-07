@@ -7,6 +7,7 @@ const port = 3000;
 const _dirName = path.resolve();
 
 app.use(express.static(path.join(_dirName, "public")))
+app.use(express.json())
 
 app.get("/", (req, res) => {
     res.status(200).sendFile(path.join(_dirName, "views", "home.html"))
@@ -25,6 +26,12 @@ app.get("/api/items", (req, res) => {
         }
     })
 })
+
+app.post("/views/admin", (req, res) => {
+    const novoProduto = req.body;
+    console.log(novoProduto);
+    res.status(200).send("Requisição recebida!");
+});
 
 
 app.listen(port, () => {

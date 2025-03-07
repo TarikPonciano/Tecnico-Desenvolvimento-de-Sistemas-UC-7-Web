@@ -9,8 +9,20 @@
 <body>
     <div class="container">
         <h1> Cadastro de Produto </h1>
-        <form id="cadastroProduto">
+        <form id="cadastroProduto" class="formulario">
+            <label for="campoNome">Nome</label>
+            <input type="text" name="campoNome" id="campoNome" class="input-text">
 
+            <label for="campoPreco">Preço</label>
+            <input type="number" name="campoPreco" id="campoPreco" class="input-text">
+
+            <label for="campoDescricao">Descrição</label>
+            <textarea name="campoDescricao" id="campoDescricao" class="input-text"></textarea>
+
+            <div class="form-buttons">
+            <button type="submit" class="btn-submit">Enviar</button>
+            <button type="reset" class="btn-reset">Limpar</button>
+            </div>
         </form>
     </div>
     <div class="container">
