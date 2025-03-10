@@ -28,7 +28,7 @@ app.get("/api/items", (req, res) => {
                 if (dados.length === 0) {
                     res.status(500).send("Não há arquivos cadastrados")
                 } else {
-                    res.status(200).json(JSON.parse(data))
+                    res.status(200).json(dados)
                 }
             }
         })
