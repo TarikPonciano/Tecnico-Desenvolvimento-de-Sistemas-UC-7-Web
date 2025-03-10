@@ -16,4 +16,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         novoItem.classList.add("lanche")
         listaProdutosComponente.appendChild(novoItem)
     });
+
+    const formularioComponente = document.getElementById("cadastroProduto")
+    formularioComponente.addEventListener("submit", async (event) => {
+        event.preventDefault()
+        const campoNome = document.getElementById("campoNome")
+        const campoPreco = document.getElementById("campoPreco")
+        const campoDescricao = document.getElementById("campoDescricao")
+
+        const novoProduto = {"nome": campoNome.value, "preco": campoPreco.value, "descricao": campoDescricao.value}
+
+        const responseCadastro = await fetch("/api/items",
+            {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(novoProduto)
+        } )
+
+        alert(await responseCadastro.text())
+        
+    })
+
+
 })

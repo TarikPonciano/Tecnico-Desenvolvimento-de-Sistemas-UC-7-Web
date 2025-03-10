@@ -37,6 +37,30 @@ app.get("/api/items", (req, res) => {
     }
 })
 
+app.post("/api/items", (req, res) => {
+    const dadosNovoProduto = req.body
+
+    fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
+        if (err) {
+            res.status(500).send("Erro na leitura dos arquivos!")
+        }
+        else {
+            const dadosAntigos = JSON.parse(data)
+            dadosNovoProduto["id"] = dadosAntigos[dadosAntigos.length - 1].id + 1
+            dadosAntigos.push(dadosNovoProduto)
+
+            fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(dadosAntigos, null, 2), (err) => {
+                if (err) {
+                    res.status(500).send("Erro ao escrever o arquivo!")
+                } else {
+                    res.status(201).send("PRODUTO CADASTRADO COM SUCESSO!")
+                }
+            })
+        }
+    })
+
+})
+
 
 app.listen(port, () => {
     console.log(`Servidor iniciado no endereço http://localhost:${port} !`)
