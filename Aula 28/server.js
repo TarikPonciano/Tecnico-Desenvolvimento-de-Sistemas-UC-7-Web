@@ -22,47 +22,51 @@ app.get("/api/items", (req, res) => {
     try {
         fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
             if (err) {
-                res.status(500).send("Erro na leitura dos arquivos!")
+                return res.status(500).json("{'error':Erro na leitura dos arquivos!, 'status': 500}")
             } else {
                 const dados = JSON.parse(data)
                 if (dados.length === 0) {
-                    res.status(500).send("Não há arquivos cadastrados")
+                    return res.status(500).json("{'error':Não há arquivos cadastrados, 'status': 500}")
                 } else {
-                    res.status(200).json(dados)
+                    return res.status(200).json(dados)
                 }
             }
         })
     } catch {
-        res.status(500).send("Erro ao acessar o arquivo!")
+        return res.status(500).json("{'error':Erro ao acessar o arquivo!, 'status': 500}")
     }
 })
 
-app.post("/api/items", (req, res) => {
-    const dadosNovoProduto = req.body
-    try{
-    fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
-        if (err) {
-            res.status(500).send("Erro na leitura dos arquivos!")
-        }
-        else {
-            const dadosAntigos = JSON.parse(data)
-            dadosNovoProduto["id"] = dadosAntigos[dadosAntigos.length - 1].id + 1
-            dadosAntigos.push(dadosNovoProduto)
 
-            fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(dadosAntigos, null, 2), (err) => {
-                if (err) {
-                    res.status(500).send("Erro ao escrever o arquivo!")
-                } else {
-                    res.status(201).send("PRODUTO CADASTRADO COM SUCESSO!")
-                }
-            })
-        }
-    })
-    }
-    catch{
-        fs.writeFile(path.join(_dirName,"data", ""))
-    }
-})
+
+
+
+// app.post("/api/items", (req, res) => {
+//     const dadosNovoProduto = req.body
+//     try{
+//     fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
+//         if (err) {
+//             res.status(500).send("Erro na leitura dos arquivos!")
+//         }
+//         else {
+//             const dadosAntigos = JSON.parse(data)
+//             dadosNovoProduto["id"] = dadosAntigos[dadosAntigos.length - 1].id + 1
+//             dadosAntigos.push(dadosNovoProduto)
+
+//             fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(dadosAntigos, null, 2), (err) => {
+//                 if (err) {
+//                     res.status(500).send("Erro ao escrever o arquivo!")
+//                 } else {
+//                     res.status(201).send("PRODUTO CADASTRADO COM SUCESSO!")
+//                 }
+//             })
+//         }
+//     })
+//     }
+//     catch{
+//         fs.writeFile(path.join(_dirName,"data", ""))
+//     }
+// })
 
 
 app.listen(port, () => {

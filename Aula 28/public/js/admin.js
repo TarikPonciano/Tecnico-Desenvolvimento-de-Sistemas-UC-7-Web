@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch("/api/items")
 
     if (response.status == 500){
-        listaProdutosComponente.innerHTML = await response.text()
+        listaProdutosComponente.innerHTML = await response.json()
         return
     }
 
@@ -17,25 +17,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         listaProdutosComponente.appendChild(novoItem)
     });
 
-    const formularioComponente = document.getElementById("cadastroProduto")
-    formularioComponente.addEventListener("submit", async (event) => {
+    const formularioCadastro = document.getElementById("cadastroProduto")
+    formularioCadastro.addEventListener("submit", async (event) => {
         event.preventDefault()
+
         const campoNome = document.getElementById("campoNome")
         const campoPreco = document.getElementById("campoPreco")
         const campoDescricao = document.getElementById("campoDescricao")
 
         const novoProduto = {"nome": campoNome.value, "preco": campoPreco.value, "descricao": campoDescricao.value}
 
-        const responseCadastro = await fetch("/api/items",
-            {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(novoProduto)
-        } )
+        const responseCadastro = await fetch("/api/items", {
+            method:"POST",
+            headers:{"Content-Type": "application/json"}, 
+            body: JSON.stringify(novoProduto)
+        })
 
         alert(await responseCadastro.text())
         
     })
+
+    
 
 
 })
