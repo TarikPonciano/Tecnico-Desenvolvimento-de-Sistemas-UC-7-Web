@@ -11,10 +11,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const listaProdutos = await response.json()
     
     listaProdutos.forEach(item => {
+        if (item.visibilidade == "ativo"){
         const novoItem = document.createElement("li")
-        novoItem.innerHTML = `Id - ${item.id} | Nome - ${item.nome} | Preço - R$ ${item.preco} | Descrição - ${item.descricao} <button class="btn-apagar"> Apagar </button>`
+        novoItem.innerHTML = `Id - ${item.id} | Nome - ${item.nome} | Preço - R$ ${item.preco} | Descrição - ${item.descricao} <button class="btn-detalhes" onclick="verDetalhes(${item.id})">Ver Detalhes</button> <button class="btn-apagar" onclick="apagarProduto(${item.id})"> Apagar </button>`
         novoItem.classList.add("lanche")
+        novoItem.addEventListener("click", () => {
+            window.location.href = `/api/items/${item.id}`
+        })
         listaProdutosComponente.appendChild(novoItem)
+        }
+        
     });
 
     const formularioCadastro = document.getElementById("cadastroProduto")
@@ -40,3 +46,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 })
 
+async function verDetalhes(id) {
+
+    const response = await fetch(`/api/items/${id}`)
+    const item = await response.json()
+    alert(JSON.stringify(item))
+}
+
+async function apagarProduto(id){
+
+    const response = await fetch(`/api/items/${id}`, {method:"DELETE"})
+    alert(await response.text())
+    window.location.reload()
+}

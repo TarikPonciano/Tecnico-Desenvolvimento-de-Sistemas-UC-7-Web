@@ -72,3 +72,17 @@ body{
 .btn-apagar:active{
     background-color: rgb(148, 5, 5);
 }
+
+.btn-detalhes{
+    background-color: blue;
+    color: white;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+}
+.btn-detalhes:hover{
+    background-color: rgb(143, 143, 236);
+}
+.btn-detalhes:active{
+    background-color: rgb(15, 10, 112);
+}

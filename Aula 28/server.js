@@ -48,6 +48,8 @@ app.post("/api/items", (req,res) =>{
             novoProduto["id"] = items[items.length - 1].id + 1
             items.push(novoProduto)
 
+            const teste = []
+    
             fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(items, null , 2), (err) => {
                 if (err){
                     res.status(500).send("Erro ao armazenar informações!")
@@ -60,6 +62,60 @@ app.post("/api/items", (req,res) =>{
     })
     
 })
+
+app.get("/api/items/:id", (req,res) =>{
+    const idEscolhido = req.params.id
+
+    fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err,data) => {
+        if(err){
+            return res.status(500).json("{'error':Erro na leitura dos arquivos!, 'status': 500}")
+        }else{
+            const itens = JSON.parse(data)
+            
+            const posicao = itens.findIndex((item) => item.id == idEscolhido)
+
+            if (posicao == -1){
+                return res.status(500).json("{'error':Item não encontrado!, 'status': 500}")
+            }else{
+                res.status(200).json(itens[posicao])
+            }
+        }
+    })
+})
+
+app.delete("/api/items/:id", (req, res) => {
+    const idEscolhido = req.params.id
+
+    fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err,data) => {
+        if(err){
+            return res.status(500).send("Erro na leitura dos arquivos!")
+        }else{
+
+            const itens = JSON.parse(data)
+            
+            const posicao = itens.findIndex((item) => item.id == idEscolhido)
+
+            if (posicao == -1){
+                return res.status(500).send("Item não encontrado!")
+            }else{
+                
+                // const itensAtualizado = itens.filter((item) => item.id != idEscolhido) > Caso queira remover o elemento completamente
+                itens[posicao].visibilidade = "inativo"
+
+                fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(itens, null, 2), (err)=>{
+                    if (err){
+                        return res.status(500).send("Erro ao remover arquivo!")
+                    }else{
+                        return res.status(200).send("Arquivo removido com sucesso!")
+                    }
+                })
+            }
+
+        }
+    })
+})
+
+// app.delete("/api/items/:id")
 
 
 
