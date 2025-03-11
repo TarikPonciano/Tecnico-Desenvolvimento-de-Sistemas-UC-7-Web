@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nome": "X-Salada",
+    "preco": 12.5,
+    "descricao": "Pão, hambúrguer, queijo, alface, tomate e maionese"
+  },
+  {
+    "id": 2,
+    "nome": "X-Bacon",
+    "preco": 14,
+    "descricao": "Pão, hambúrguer, queijo, bacon, alface, tomate e maionese"
+  },
+  {
+    "id": 3,
+    "nome": "X-Egg",
+    "preco": 13.5,
+    "descricao": "Pão, hambúrguer, queijo, ovo, alface, tomate e maionese"
+  },
+  {
+    "id": 4,
+    "nome": "X-Tudo",
+    "preco": 16,
+    "descricao": "Pão, hambúrguer, queijo, presunto, bacon, ovo, alface, tomate e maionese"
+  },
+  {
+    "id": 5,
+    "nome": "Cachorro-Quente",
+    "preco": 10,
+    "descricao": "Pão, salsicha, purê de batata, milho, ervilha, batata palha e maionese"
+  },
+  {
+    "id": 6,
+    "nome": "Misto Quente",
+    "preco": 8,
+    "descricao": "Pão, presunto e queijo"
+  },
+  {
+    "id": 7,
+    "nome": "Suco de Laranja",
+    "preco": 5,
+    "descricao": "Suco natural de laranja"
+  },
+  {
+    "id": 8,
+    "nome": "Refrigerante",
+    "preco": 4,
+    "descricao": "Lata de refrigerante de diversos sabores"
+  },
+  {
+    "id": 9,
+    "nome": "X-Podrão",
+    "preco": 30,
+    "descricao": "2 Pães Arabes com tudo que tem direito. Suíno, bovino e aviário. Um verdadeiro zoologico de sabores."
+  },
+  {
+    "nome": "X-Dog",
+    "preco": "12",
+    "descricao": "123",
+    "id": 10
+  }
+]
