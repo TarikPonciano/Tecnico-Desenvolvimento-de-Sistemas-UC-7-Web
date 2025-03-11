@@ -58,3 +58,17 @@ body{
 .lanche:hover {
     transform: scale(1.05);
 }
+
+.btn-apagar{
+    background-color: red;
+    color: white;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+}
+.btn-apagar:hover{
+    background-color: rgb(231, 101, 101);
+}
+.btn-apagar:active{
+    background-color: rgb(148, 5, 5);
+}

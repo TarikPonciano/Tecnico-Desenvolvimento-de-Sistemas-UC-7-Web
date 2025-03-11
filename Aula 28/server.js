@@ -37,6 +37,30 @@ app.get("/api/items", (req, res) => {
     }
 })
 
+app.post("/api/items", (req,res) =>{
+    const novoProduto = req.body
+
+    fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
+        if (err){
+            res.status(500).send("Erro ao ler arquivo de dados!")
+        }else{
+            const items = JSON.parse(data)
+            novoProduto["id"] = items[items.length - 1].id + 1
+            items.push(novoProduto)
+
+            fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(items, null , 2), (err) => {
+                if (err){
+                    res.status(500).send("Erro ao armazenar informações!")
+                }
+                else{
+                    res.status(201).send("Item inserido com sucesso!")
+                }
+            })
+        }
+    })
+    
+})
+
 
 
 

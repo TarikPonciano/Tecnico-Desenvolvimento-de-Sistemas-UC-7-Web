@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     listaProdutos.forEach(item => {
         const novoItem = document.createElement("li")
-        novoItem.innerHTML = `Id - ${item.id} | Nome - ${item.nome} | Preço - R$ ${item.preco} | Descrição - ${item.descricao}`
+        novoItem.innerHTML = `Id - ${item.id} | Nome - ${item.nome} | Preço - R$ ${item.preco} | Descrição - ${item.descricao} <button class="btn-apagar"> Apagar </button>`
         novoItem.classList.add("lanche")
         listaProdutosComponente.appendChild(novoItem)
     });
@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert(await responseCadastro.text())
         
     })
-
-    
 
 
 })
