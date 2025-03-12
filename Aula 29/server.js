@@ -6,22 +6,27 @@ const app = express();
 const port = 3000;
 const _dirName = path.resolve();
 
+// Configura o servidor para servir arquivos estáticos da pasta "public"
 app.use(express.static(path.join(_dirName, "public")))
+// Configura o servidor para interpretar JSON no corpo das requisições
 app.use(express.json())
 
-
+// Rota para a página inicial
 app.get("/", (req, res) => {
     res.status(200).sendFile(path.join(_dirName, "views", "home.html"))
 })
 
+// Rota para a página de administração
 app.get("/views/admin/", (req, res) => {
     res.status(200).sendFile(path.join(_dirName, "views", "admin.html"))
 })
 
+// Rota para a página de detalhes do item
 app.get("/views/item/:id", (req, res) => {
     res.status(200).sendFile(path.join(_dirName, "views", "item.html"))
 })
 
+// Rota para obter todos os itens
 app.get("/api/items", (req, res) => {
     try {
         fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
@@ -41,6 +46,7 @@ app.get("/api/items", (req, res) => {
     }
 })
 
+// Rota para cadastrar um novo item
 app.post("/api/items", (req, res) => {
     const novoProduto = req.body
 
@@ -63,9 +69,9 @@ app.post("/api/items", (req, res) => {
             })
         }
     })
-
 })
 
+// Rota para obter um item específico pelo ID
 app.get("/api/items/:id", (req, res) => {
     const idEscolhido = req.params.id
 
@@ -86,6 +92,7 @@ app.get("/api/items/:id", (req, res) => {
     })
 })
 
+// Rota para apagar um item pelo ID (marcar como inativo)
 app.delete("/api/items/:id", (req, res) => {
     const idEscolhido = req.params.id
 
@@ -93,7 +100,6 @@ app.delete("/api/items/:id", (req, res) => {
         if (err) {
             return res.status(500).send("Erro na leitura dos arquivos!")
         } else {
-
             const itens = JSON.parse(data)
 
             const posicao = itens.findIndex((item) => item.id == idEscolhido)
@@ -101,8 +107,7 @@ app.delete("/api/items/:id", (req, res) => {
             if (posicao == -1) {
                 return res.status(500).send("Item não encontrado!")
             } else {
-
-                // const itensAtualizado = itens.filter((item) => item.id != idEscolhido) > Caso queira remover o elemento completamente
+                // Marca o item como inativo
                 itens[posicao].visibilidade = "inativo"
 
                 fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(itens, null, 2), (err) => {
@@ -113,24 +118,22 @@ app.delete("/api/items/:id", (req, res) => {
                     }
                 })
             }
-
         }
     })
 })
 
-
-
+// Rota para atualizar um item pelo ID
 app.put("/api/items/:id", (req, res) => {
-    //Extrair informação da requisição (req.body)
+    // Extrai informação da requisição (req.body)
     const dadosNovos = req.body
     const idItem = parseInt(req.params.id)
-    //Ler o arquivo original
+    // Lê o arquivo original
     fs.readFile(path.join(_dirName, "data", "items.json"), "utf8", (err, data) => {
         if (err) {
             return res.status(500).send("Erro na leitura dos arquivos!")
         }
         else {
-            //Encontrar o item a ser modificado
+            // Encontra o item a ser modificado
             const itens = JSON.parse(data)
             const itemOriginal = itens.find((item) => item.id == idItem)
             
@@ -138,12 +141,12 @@ app.put("/api/items/:id", (req, res) => {
                 return res.status(500).send("Item não encontrado!")
             }
 
-            //Trocar as informações do item
+            // Troca as informações do item
             itemOriginal.nome = dadosNovos["nome"]
             itemOriginal.preco = dadosNovos["preco"]
             itemOriginal.descricao = dadosNovos["descricao"]
             itemOriginal.visibilidade = dadosNovos["visibilidade"]
-            //Sobrescrever o arquivo original com o novo arquivo
+            // Sobrescreve o arquivo original com o novo arquivo
             fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(itens, null, 2), (err) => {
                 if (err) {
                     return res.status(500).send("Erro ao atualizar o arquivo!")
@@ -155,8 +158,7 @@ app.put("/api/items/:id", (req, res) => {
     })
 })
 
-
-
+// Inicia o servidor na porta especificada
 app.listen(port, () => {
     console.log(`Servidor iniciado no endereço http://localhost:${port} !`)
 })
