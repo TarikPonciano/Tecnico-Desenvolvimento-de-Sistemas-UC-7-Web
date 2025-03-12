@@ -46,9 +46,8 @@ app.post("/api/items", (req,res) =>{
         }else{
             const items = JSON.parse(data)
             novoProduto["id"] = items[items.length - 1].id + 1
+            novoProduto["visibilidade"] = "ativo"
             items.push(novoProduto)
-
-            const teste = []
     
             fs.writeFile(path.join(_dirName, "data", "items.json"), JSON.stringify(items, null , 2), (err) => {
                 if (err){
@@ -113,6 +112,16 @@ app.delete("/api/items/:id", (req, res) => {
 
         }
     })
+})
+
+
+
+app.put("/api/items/:id", (req, res) => {
+    //Extrair informação da requisição (req.body)
+    //Ler o arquivo original
+    //Encontrar o item a ser modificado
+    //Trocar as informações do item
+    //Sobrescrever o arquivo original com o novo arquivo
 })
 
 
