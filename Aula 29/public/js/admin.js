@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const novoItem = document.createElement("li")
         novoItem.innerHTML = `Id - ${item.id} | Nome - ${item.nome} | Preço - R$ ${item.preco} | Descrição - ${item.descricao} <button class="btn-detalhes" onclick="verDetalhes(${item.id})">Ver Detalhes</button> <button class="btn-apagar" onclick="apagarProduto(${item.id})"> Apagar </button>`
         novoItem.classList.add("lanche")
-        novoItem.addEventListener("click", () => {
-            window.location.href = `/api/items/${item.id}`
-        })
+        // novoItem.addEventListener("click", () => {
+        //     window.location.href = `/api/items/${item.id}`
+        // })
         listaProdutosComponente.appendChild(novoItem)
         }
         
@@ -47,9 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function verDetalhes(id) {
 
-    const response = await fetch(`/api/items/${id}`)
-    const item = await response.json()
-    alert(JSON.stringify(item))
+    window.location.href = `/views/item/${id}`
 }
 
 async function apagarProduto(id){

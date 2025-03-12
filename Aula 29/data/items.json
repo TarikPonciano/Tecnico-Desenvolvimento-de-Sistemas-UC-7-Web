@@ -30,16 +30,16 @@
   {
     "id": 5,
     "nome": "Cachorro-Quente",
-    "preco": 10,
+    "preco": "15",
     "descricao": "Pão, salsicha, purê de batata, milho, ervilha, batata palha e maionese",
-    "visibilidade": "inativo"
+    "visibilidade": "ativo"
   },
   {
     "id": 6,
     "nome": "Misto Quente",
-    "preco": 8,
+    "preco": "20",
     "descricao": "Pão, presunto e queijo",
-    "visibilidade": "inativo"
+    "visibilidade": "ativo"
   },
   {
     "id": 7,
