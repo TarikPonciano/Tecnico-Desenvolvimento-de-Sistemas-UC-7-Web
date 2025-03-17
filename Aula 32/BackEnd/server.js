@@ -12,25 +12,49 @@ app.get("/", (req, res) => {
 })
 // Escolha um tema e preencha o arquivo itens.json com pelo menos 10 objetos do tema escolhido. 
 // Exiba os itens cadastrados através da rota /api/itens
-app.get("/api/itens", (req,res) => {
+app.get("/api/itens", (req, res) => {
     try {
         fs.readFile(__dirItens, (err, data) => {
-            if (err){
+            if (err) {
                 console.log(err)
-                return res.status(500).json({"message": `Erro ao ler arquivo.`})
-            }else{
+                return res.status(500).json({ "message": `Erro ao ler arquivo.` })
+            } else {
                 const dataJson = JSON.parse(data)
-                if (dataJson.length > 0){
+                if (dataJson.length > 0) {
                     return res.status(200).json(dataJson)
-                }else{
-                    return res.status(204).json({"message": "Arquivo vazio..."})
+                } else {
+                    return res.status(204).json({ "message": "Arquivo vazio..." })
                 }
             }
         })
-        
+
     } catch (error) {
         console.log(error)
-       return res.status(500).json({"message": `Erro ao executar operação.`})
+        return res.status(500).json({ "message": `Erro ao executar operação.` })
+    }
+})
+
+app.get("/api/itens/:id", (req, res) => {
+    const idEscolhido = parseInt(req.params.id)
+    if (!idEscolhido){
+        return res.status(400).json({"message": "ID Inválido. Use números!"})
+    }
+
+    try {
+        fs.readFile(__dirItens, (err, data) => {
+            if(err){
+                console.log(err)
+                return res.status(500).json({ "message": `Erro ao ler arquivo.` })
+            }else{
+                const dataJson = JSON.parse(data)
+                const itemEscolhido = dataJson.filter((item) => item.id == idEscolhido)
+
+                return res.status(200).json(itemEscolhido)
+            }
+        })
+
+    } catch (error) {
+        return res.status(500).json({ "message": "Erro ao executar operação!" })
     }
 })
 
