@@ -4,7 +4,7 @@
     "nome": "X-Salada",
     "preco": 12.5,
     "descricao": "Pão, hambúrguer, queijo, alface, tomate e maionese",
-    "visibilidade": "ativo"
+    "visibilidade": "inativo"
   },
   {
     "id": 2,
@@ -16,7 +16,7 @@
   {
     "id": 3,
     "nome": "X-Egg",
-    "preco": 13.5,
+    "preco": "13.5",
     "descricao": "Pão, hambúrguer, queijo, ovo, alface, tomate e maionese",
     "visibilidade": "ativo"
   },
@@ -67,6 +67,27 @@
     "preco": "12",
     "descricao": "123",
     "id": 10,
+    "visibilidade": "ativo"
+  },
+  {
+    "nome": "Pizza de Calabresa",
+    "preco": "20",
+    "descricao": "Calabresa",
+    "id": 11,
+    "visibilidade": "ativo"
+  },
+  {
+    "nome": "Lanche Doidão",
+    "preco": "123",
+    "descricao": "1234",
+    "id": 12,
+    "visibilidade": "ativo"
+  },
+  {
+    "nome": "Outro Lanche",
+    "preco": "1234",
+    "descricao": "1231\n",
+    "id": 13,
     "visibilidade": "ativo"
   }
 ]

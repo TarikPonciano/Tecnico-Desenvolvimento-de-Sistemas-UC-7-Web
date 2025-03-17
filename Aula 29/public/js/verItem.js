@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Obtém o ID do produto a partir da URL
     const elementosCaminho = window.location.pathname.split("/")
     const idProduto = elementosCaminho[elementosCaminho.length - 1]
-
+    const titulo = document.querySelector("h1").innerHTML = `Vendo Detalhes do Produto ${idProduto}`
     // Faz uma requisição para obter os dados do produto
     const response = await fetch(`/api/items/${idProduto}`)
     const dadosProdutos = await response.json()
