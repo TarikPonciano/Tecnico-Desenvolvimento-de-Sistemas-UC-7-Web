@@ -7,6 +7,8 @@ const PORT = 3000
 const __dirName = path.resolve()
 const __dirItens = path.join(__dirName, "data", "itens.json")
 
+app.use(express.json())
+
 app.get("/", (req, res) => {
     res.status(200).send("Bem vindo à minha api. Os comandos estarão na rota /api!")
 })
@@ -55,6 +57,39 @@ app.get("/api/itens/:id", (req, res) => {
 
     } catch (error) {
         return res.status(500).json({ "message": "Erro ao executar operação!" })
+    }
+})
+
+app.post("/api/itens", (req, res) => {
+    const novoItem = req.body
+    if (!novoItem){
+        return res.status(400).json({"message": "Corpo de envio inválido!"})
+    }
+
+    try {
+
+        fs.readFile(__dirItens, (err, data) => {
+            if(err){
+                console.log(err)
+                return res.status(500).json({ "message": `Erro ao ler arquivo.` })
+            }else{
+                if (!novoItem.ano_lancamento || !novoItem.titulo || !novoItem.autor){
+                    return res.status(400).json({"message": "Corpo de envio inválido!"})
+                }
+                const dataJson = JSON.parse(data)
+                dataJson.push(novoItem)
+
+                fs.writeFile(__dirItens, JSON.stringify(dataJson), () => {
+                    return res.send("DEU RUIM!")
+                })
+
+                res.send("DEU BOM!")
+
+            }
+        })
+        
+    } catch (error) {
+        return res.status(500).json({"message": "Erro ao executar operação!"})
     }
 })
 
