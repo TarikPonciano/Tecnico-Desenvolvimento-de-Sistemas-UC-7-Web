@@ -9,7 +9,7 @@ const __dirName = path.resolve()
 app.use(express.static(path.join(__dirName, "public")))
 
 app.get("/", (req, res)=> {
-    res.send("Hello World")
+    res.status(200).sendFile(path.join(__dirName, "views", "home.html"))
 })
 
 app.listen(PORT, () => {

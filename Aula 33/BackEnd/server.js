@@ -1,12 +1,14 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import cors from "cors"; // Importação do cors
 
 const app = express()
 const PORT = 3000
 const __dirName = path.resolve()
 const __dirItens = path.join(__dirName, "data", "itens.json")
 
+app.use(cors()) // Habilita o cross-domain
 app.use(express.json())
 
 app.get("/", (req, res) => {
