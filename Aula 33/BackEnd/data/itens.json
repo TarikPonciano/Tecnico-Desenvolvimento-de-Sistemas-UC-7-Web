@@ -57,26 +57,18 @@
   },
   {
     "id": 8,
-    "titulo": "O Código Da Vinci",
-    "autor": "Dan Brown",
+    "titulo": "Queda dos Anjos",
+    "autor": "Lee Aa",
     "numero_paginas": 689,
-    "ano_lancamento": 2003,
-    "editora": "Doubleday"
-  },
-  {
-    "id": 10,
-    "titulo": "A Menina que Roubava Livros",
-    "autor": "Markus Zusak",
-    "numero_paginas": 480,
-    "ano_lancamento": 2005,
-    "editora": "Picador"
+    "ano_lancamento": 2010,
+    "editora": "Senac"
   },
   {
     "titulo": "Queda dos Anjos",
     "autor": "Lee Aa",
     "numero_paginas": 300,
     "ano_lancamento": 2010,
-    "editora": "Senac",
+    "editora": "Sophia",
     "id": 11
   }
 ]

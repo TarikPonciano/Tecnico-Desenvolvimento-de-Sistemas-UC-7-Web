@@ -67,7 +67,7 @@ app.get("/api/itens/:id", (req, res) => {
 
 app.post("/api/itens", (req, res) => {
     const novoItem = req.body
-    
+
     if (!novoItem) {
         return res.status(500).send("Erro ao executar operação!")
     }
@@ -100,7 +100,7 @@ app.post("/api/itens", (req, res) => {
 
 })
 
-app.delete("/api/itens/:id", (req,res) => {
+app.delete("/api/itens/:id", (req, res) => {
     const idEscolhido = parseInt(req.params.id)
     if (!idEscolhido) {
         return res.status(400).json({ "message": "ID Inválido. Use números!" })
@@ -113,10 +113,62 @@ app.delete("/api/itens/:id", (req,res) => {
                 return res.status(500).send("Erro ao executar operação!")
             } else {
                 const dataJson = JSON.parse(data)
+
                 const dataFinal = dataJson.filter((item) => item.id != idEscolhido)
 
+                if (dataFinal.length == dataJson.length) {
+                    return res.status(500).send("Item não encontrado para remoção!")
+                }
+
                 fs.writeFile(__dirItens, JSON.stringify(dataFinal, null, 2), () => {
-                    return res.status(201).send("Item inserido com sucesso!")
+                    return res.status(201).send("Item removido com sucesso!")
+                })
+            }
+        })
+
+    } catch (error) {
+        return res.status(500).send("Erro ao executar operação!")
+    }
+
+})
+
+app.put("/api/itens/:id", (req, res) => {
+    const novoItem = req.body
+    const idItem = req.params.id
+
+    if (!idItem) {
+        return res.status(400).json({ "message": "ID Inválido. Use números!" })
+    }
+
+    if (!novoItem) {
+        return res.status(500).send("Erro ao executar operação!")
+    }
+    if (!novoItem.titulo || !novoItem.autor || !novoItem.ano_lancamento) {
+        return res.status(500).send("Documento incompleto para inserção!")
+    }
+
+    try {
+
+        fs.readFile(__dirItens, (err, data) => {
+            if (err) {
+                return res.status(500).send("Erro ao executar operação!")
+            } else {
+                const dataJson = JSON.parse(data)
+
+                const itemEscolhido = dataJson.find((item) => item.id == idItem)
+
+                if (!itemEscolhido) {
+                    return res.status(201).send("Item não encontrado!")
+                }
+
+                itemEscolhido.titulo = novoItem.titulo
+                itemEscolhido.autor = novoItem.autor
+                itemEscolhido.numero_pagina = novoItem.numero_pagina
+                itemEscolhido.ano_lancamento = novoItem.ano_lancamento
+                itemEscolhido.editora = novoItem.editora
+
+                fs.writeFile(__dirItens, JSON.stringify(dataJson, null, 2), () => {
+                    return res.status(201).send("Item atualizado com sucesso!")
                 })
             }
         })
