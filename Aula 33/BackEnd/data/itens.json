@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "titulo": "Dom Casmurro",
+    "autor": "Machado de Assis",
+    "numero_paginas": 256,
+    "ano_lancamento": 1899,
+    "editora": "Garnier"
+  },
+  {
+    "id": 2,
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "numero_paginas": 328,
+    "ano_lancamento": 1949,
+    "editora": "Secker & Warburg"
+  },
+  {
+    "id": 3,
+    "titulo": "O Senhor dos Anéis",
+    "autor": "J.R.R. Tolkien",
+    "numero_paginas": 1216,
+    "ano_lancamento": 1954,
+    "editora": "Allen & Unwin"
+  },
+  {
+    "id": 4,
+    "titulo": "O Pequeno Príncipe",
+    "autor": "Antoine de Saint-Exupéry",
+    "numero_paginas": 96,
+    "ano_lancamento": 1943,
+    "editora": "Reynal & Hitchcock"
+  },
+  {
+    "id": 5,
+    "titulo": "Cem Anos de Solidão",
+    "autor": "Gabriel García Márquez",
+    "numero_paginas": 417,
+    "ano_lancamento": 1967,
+    "editora": "Harper & Row"
+  },
+  {
+    "id": 6,
+    "titulo": "A Revolução dos Bichos",
+    "autor": "George Orwell",
+    "numero_paginas": 112,
+    "ano_lancamento": 1945,
+    "editora": "Secker & Warburg"
+  },
+  {
+    "id": 7,
+    "titulo": "Orgulho e Preconceito",
+    "autor": "Jane Austen",
+    "numero_paginas": 279,
+    "ano_lancamento": 1813,
+    "editora": "T. Egerton"
+  },
+  {
+    "id": 8,
+    "titulo": "O Código Da Vinci",
+    "autor": "Dan Brown",
+    "numero_paginas": 689,
+    "ano_lancamento": 2003,
+    "editora": "Doubleday"
+  },
+  {
+    "id": 10,
+    "titulo": "A Menina que Roubava Livros",
+    "autor": "Markus Zusak",
+    "numero_paginas": 480,
+    "ano_lancamento": 2005,
+    "editora": "Picador"
+  },
+  {
+    "titulo": "Queda dos Anjos",
+    "autor": "Lee Aa",
+    "numero_paginas": 300,
+    "ano_lancamento": 2010,
+    "editora": "Senac",
+    "id": 11
+  }
+]
