@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/itens HTTP/1.1
+content-type: application/json
+
+{
+        "titulo": "Queda dos Anjos",
+        "autor": "Lee Aa",
+        "numero_paginas": 300,
+        "ano_lancamento": 2010,
+        "editora": "Senac"
+}
+###
+DELETE http://localhost:3000/api/itens/9 HTTP/1.1
+
+
