@@ -49,4 +49,9 @@
   max-width: 70vw;
   border: solid black 2px;
   border-radius: 10px;
+  
+}
+
+ul {
+  list-style:none;
 }
