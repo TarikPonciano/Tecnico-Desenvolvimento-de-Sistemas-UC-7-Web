@@ -68,9 +68,11 @@ function App() {
 
   return (
   // Declaração do que será renderizado
-  <div className='container'>
+  <div className='container' style={{color:'Gray'}}>
     <h1>Acervo de Livros</h1>
-
+    <ul>
+      
+    </ul>
   </div>
     
   )
