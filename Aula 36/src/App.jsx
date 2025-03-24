@@ -74,12 +74,17 @@ function App() {
     alert(`Livro ${idLivro} removido!`)
   }
 
+  const adicionarLivro = (novoLivro) => {
+    // Criar um campo id na variável novoLivro
+    // Criar uma lista que contenha os livros antigos e o novoLivro
+    // Guardar as informações da nova lista usando o setLivros
+  }
 
 
   return (
     // Declaração do que será renderizado
     <>
-      <div className='container'></div>
+      <FormularioNovoLivro />
       <div className='container' style={{ color: 'Gray' }}>
         <h1>Acervo de Livros</h1>
         <ul>
