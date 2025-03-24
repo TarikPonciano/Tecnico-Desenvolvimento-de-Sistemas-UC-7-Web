@@ -23,7 +23,15 @@ function FormularioNovoLivro({adicionarLivro}){
     }
 
     const mudanca = (event) =>{
-        novoLivro[event.target.name] = event.target.value
+        let informacao = event.target.value
+
+        if (event.target.name == "ano_lancamento"){
+            if (parseInt(informacao)>10000){
+                informacao = 9999
+            }
+        }
+
+        novoLivro[event.target.name] = informacao
         console.log(novoLivro)
         setNovoLivro({...novoLivro})
     }
