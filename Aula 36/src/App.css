@@ -4,7 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -49,7 +48,7 @@
   max-width: 70vw;
   border: solid black 2px;
   border-radius: 10px;
-  
+  margin-bottom: 10vh;
 }
 
 ul {

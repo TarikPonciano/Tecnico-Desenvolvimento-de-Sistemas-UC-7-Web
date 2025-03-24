@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import CardLivro from './components/CardLivro/CardLivro'
+import FormularioNovoLivro from './components/FormularioNovoLivro/FormularioNovoLivro'
 
 function App() {
   //Código e declaração de variáveis  
@@ -76,15 +77,20 @@ function App() {
 
   const adicionarLivro = (novoLivro) => {
     // Criar um campo id na variável novoLivro
+    const novoLivroAjustado = {id: livros[livros.length - 1].id + 1 ,...novoLivro}
     // Criar uma lista que contenha os livros antigos e o novoLivro
+    const listaLivrosAtualizada = [...livros, novoLivroAjustado]
     // Guardar as informações da nova lista usando o setLivros
+    setLivros(listaLivrosAtualizada)
+
+    //setLivros([...livros, {id: livros[livros.length - 1].id + 1, ...novoLivro }])
   }
 
 
   return (
     // Declaração do que será renderizado
     <>
-      <FormularioNovoLivro />
+      <FormularioNovoLivro/>
       <div className='container' style={{ color: 'Gray' }}>
         <h1>Acervo de Livros</h1>
         <ul>
