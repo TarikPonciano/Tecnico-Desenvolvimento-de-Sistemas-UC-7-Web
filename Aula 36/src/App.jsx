@@ -90,7 +90,7 @@ function App() {
   return (
     // Declaração do que será renderizado
     <>
-      <FormularioNovoLivro/>
+      <FormularioNovoLivro adicionarLivro={adicionarLivro}/>
       <div className='container' style={{ color: 'Gray' }}>
         <h1>Acervo de Livros</h1>
         <ul>
