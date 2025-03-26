@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom
 import './App.css'
 import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
 import AcervoLivros from './views/AcervoLivros/AcervoLivros'
+import FormularioAtualizarLivro from './views/FormularioAtualizarLivro/FormularioAtualizarLivro'
 
 function App() {
   //Código e declaração de variáveis  
@@ -91,6 +92,15 @@ function App() {
 
   }
 
+  const atualizarLivro = (livroAtualizado) => {
+    console.log("Recebido", livroAtualizado)
+    const listaAtualizada = livros.map((livro) => { 
+      livro.id === livroAtualizado.id ? livroAtualizado : livro
+  })
+    setLivros(listaAtualizada)
+    navigate("/acervo")
+  }
+
 
   return (
     // Declaração do que será renderizado
@@ -109,6 +119,8 @@ function App() {
         <Route path='/acervo' element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
 
         <Route path='/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
+
+        <Route path='/editar/:id' element={<FormularioAtualizarLivro livros={livros} atualizarLivro={atualizarLivro} />} />
 
         <Route path='*' element={<h1>404 Página não encontrada</h1>} />
 
