@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import CardLivro from './components/CardLivro/CardLivro'
-import FormularioNovoLivro from './components/FormularioNovoLivro/FormularioNovoLivro'
+import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
+import AcervoLivros from './views/AcervoLivros/AcervoLivros'
 
 function App() {
   //Código e declaração de variáveis  
@@ -91,17 +91,7 @@ function App() {
     // Declaração do que será renderizado
     <>
       <FormularioNovoLivro adicionarLivro={adicionarLivro}/>
-      <div className='container' style={{ color: 'Gray' }}>
-        <h1>Acervo de Livros</h1>
-        <ul>
-          {
-            livros.map((livro) => (
-              <CardLivro key={livro.id} id={livro.id} titulo={livro.titulo} autor={livro.autor} ano_lancamento={livro.ano_lancamento} removerLivro={removerLivro} />
-            )
-            )
-          }
-        </ul>
-      </div>
+      <AcervoLivros livros={livros} removerLivro={removerLivro} />
     </>
   )
 }
