@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
 import AcervoLivros from './views/AcervoLivros/AcervoLivros'
@@ -77,7 +78,7 @@ function App() {
 
   const adicionarLivro = (novoLivro) => {
     // Criar um campo id na variável novoLivro
-    const novoLivroAjustado = {id: livros[livros.length - 1].id + 1 ,...novoLivro}
+    const novoLivroAjustado = { id: livros[livros.length - 1].id + 1, ...novoLivro }
     // Criar uma lista que contenha os livros antigos e o novoLivro
     const listaLivrosAtualizada = [...livros, novoLivroAjustado]
     // Guardar as informações da nova lista usando o setLivros
@@ -89,10 +90,19 @@ function App() {
 
   return (
     // Declaração do que será renderizado
-    <>
-      <FormularioNovoLivro adicionarLivro={adicionarLivro}/>
-      <AcervoLivros livros={livros} removerLivro={removerLivro} />
-    </>
+    <BrowserRouter>
+      <Routes>
+
+        <Route path='/acervo' element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
+
+        <Route path='/formulario/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
+
+        <Route path='*' element={<h1>404 Página não encontrada</h1>} />
+
+      </Routes>
+
+
+    </BrowserRouter>
   )
 }
 
