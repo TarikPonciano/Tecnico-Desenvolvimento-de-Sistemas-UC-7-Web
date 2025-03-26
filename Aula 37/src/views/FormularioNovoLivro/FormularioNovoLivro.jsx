@@ -9,6 +9,8 @@ function FormularioNovoLivro({adicionarLivro}){
         ano_lancamento: ""
     })
 
+    
+
     const enviar = (event) => {
         event.preventDefault()
 
@@ -19,7 +21,7 @@ function FormularioNovoLivro({adicionarLivro}){
             autor: "",
             ano_lancamento: ""
         })
-
+        
     }
 
     const mudanca = (event) =>{

@@ -54,3 +54,18 @@
 ul {
   list-style:none;
 }
+
+.menu {
+  position: fixed;
+  width: 70vw;
+  top:0px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6dcdc;
+}
+.menu a {
+
+  margin: 20px;
+}

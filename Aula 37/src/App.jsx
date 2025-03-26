@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import './App.css'
 import FormularioNovoLivro from './views/FormularioNovoLivro/FormularioNovoLivro'
 import AcervoLivros from './views/AcervoLivros/AcervoLivros'
@@ -69,6 +69,8 @@ function App() {
       ano_lancamento: 1320
     }
   ])
+  const navigate = useNavigate()
+  
 
   const removerLivro = (idLivro) => {
     const livrosAtualizado = livros.filter((livro) => livro.id != idLivro)
@@ -85,22 +87,33 @@ function App() {
     setLivros(listaLivrosAtualizada)
 
     //setLivros([...livros, {id: livros[livros.length - 1].id + 1, ...novoLivro }])
+    navigate("/acervo")
+
   }
 
 
   return (
     // Declaração do que será renderizado
-    <BrowserRouter>
+    
+    <>
+      <nav className='menu'>
+        <div>LOGO</div>
+        <div>
+          <Link to="/acervo">Acervo de Livros</Link>
+          <Link to="/cadastro">Cadastro de Livros</Link>
+        </div>
+      </nav>
+
       <Routes>
 
         <Route path='/acervo' element={<AcervoLivros livros={livros} removerLivro={removerLivro} />} />
 
-        <Route path='/formulario/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
+        <Route path='/cadastro' element={<FormularioNovoLivro adicionarLivro={adicionarLivro} />} />
 
         <Route path='*' element={<h1>404 Página não encontrada</h1>} />
 
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
