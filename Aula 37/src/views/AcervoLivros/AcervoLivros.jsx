@@ -2,6 +2,7 @@ import CardLivro from "../../components/CardLivro/CardLivro"
 import "./AcervoLivros.css"
 
 function AcervoLivros({ livros, removerLivro }) {
+    console.log(livros)
     return (
         <div className='container' style={{ color: 'Gray' }}>
             <h1>Acervo de Livros</h1>

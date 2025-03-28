@@ -95,7 +95,7 @@ function App() {
   const atualizarLivro = (livroAtualizado) => {
     console.log("Recebido", livroAtualizado)
     const listaAtualizada = livros.map((livro) => { 
-      livro.id === livroAtualizado.id ? livroAtualizado : livro
+     return  livro.id === livroAtualizado.id ? livroAtualizado : livro
   })
     setLivros(listaAtualizada)
     navigate("/acervo")

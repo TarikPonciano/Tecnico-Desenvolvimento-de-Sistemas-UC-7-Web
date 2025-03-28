@@ -5,13 +5,19 @@ import { useParams } from "react-router-dom"
 function FormularioAtualizarLivro({livros, atualizarLivro}){
     //Parte lógica
     const { id } = useParams()
+
     const livro = livros.find((l) => l.id == id)
 
-    const [novoLivro, setNovoLivro] = useState({
+    const [novoLivro, setNovoLivro] = useState(livro ? {
         id: livro.id,
         titulo: livro.titulo,
         autor: livro.autor,
         ano_lancamento: livro.ano_lancamento
+    } : {
+        id: "",
+        titulo: "",
+        autor: "",
+        ano_lancamento: ""
     })
 
     
@@ -47,6 +53,7 @@ function FormularioAtualizarLivro({livros, atualizarLivro}){
 
     //Renderização
     return(
+        livro ? 
         <div className="container formulario">
             <h1>Editar Livro {novoLivro.id}</h1>
             <form onSubmit={enviar}>
@@ -63,7 +70,7 @@ function FormularioAtualizarLivro({livros, atualizarLivro}){
                 <button type="submit">✔ Editar</button>
 
             </form>
-        </div>
+        </div> : <h1>ERRO LIVRO NÃO ENCONTRADO</h1>
     )
 }
 
