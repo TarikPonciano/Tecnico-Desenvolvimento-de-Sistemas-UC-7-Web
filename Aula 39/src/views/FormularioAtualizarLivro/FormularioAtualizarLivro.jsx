@@ -1,26 +1,52 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./FormularioAtualizarLivro.css"
 import { useParams } from "react-router-dom"
 
-function FormularioAtualizarLivro({livros, atualizarLivro}){
+function FormularioAtualizarLivro(){
     //Parte lógica
     const { id } = useParams()
 
-    const livro = livros.find((l) => l.id == id)
-
-    const [novoLivro, setNovoLivro] = useState(livro ? {
-        id: livro.id,
-        titulo: livro.titulo,
-        autor: livro.autor,
-        ano_lancamento: livro.ano_lancamento
-    } : {
+    const [novoLivro, setNovoLivro] = useState({
         id: "",
         titulo: "",
         autor: "",
         ano_lancamento: ""
     })
 
-    
+    useEffect(() => {
+        const carregarLivro = async () => {
+            try {
+            const response = await fetch(`http://localhost:5000/livros/${id}`)
+
+            if (response.status == 404){
+                setNovoLivro({
+                    id: "",
+                    titulo: "",
+                    autor: "",
+                    ano_lancamento: ""
+                })
+                return
+            }
+
+            const dados = await response.json()
+            setNovoLivro(dados)
+        }
+        catch{
+            setNovoLivro({
+                id: "",
+                titulo: "",
+                autor: "",
+                ano_lancamento: ""
+            })
+        }
+        }
+        carregarLivro()
+    },[])
+
+    const atualizarLivro = async (livroAtualizado) => {
+        const response = await fetch(`http://localhost:5000/livros/${livroAtualizado.id}`, {method:"PUT", headers: {"CONTENT-TYPE":"application/json"}, body: JSON.stringify(livroAtualizado)})
+        alert(response.statusText)
+    }
 
     const enviar = (event) => {
         event.preventDefault()
@@ -53,7 +79,7 @@ function FormularioAtualizarLivro({livros, atualizarLivro}){
 
     //Renderização
     return(
-        livro ? 
+        novoLivro.id != "" ?
         <div className="container formulario">
             <h1>Editar Livro {novoLivro.id}</h1>
             <form onSubmit={enviar}>
@@ -70,7 +96,7 @@ function FormularioAtualizarLivro({livros, atualizarLivro}){
                 <button type="submit">✔ Editar</button>
 
             </form>
-        </div> : <h1>ERRO LIVRO NÃO ENCONTRADO</h1>
+        </div>: <h1>LIVRO NÃO ENCONTRADO</h1>
     )
 }
 

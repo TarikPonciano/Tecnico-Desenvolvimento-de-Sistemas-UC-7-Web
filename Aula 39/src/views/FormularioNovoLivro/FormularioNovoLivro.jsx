@@ -1,20 +1,29 @@
 import { useState } from "react"
 import "./FormularioNovoLivro.css"
+import { useNavigate } from "react-router-dom"
 
-function FormularioNovoLivro({adicionarLivro}){
+function FormularioNovoLivro(){
     //Parte lógica
     const [novoLivro, setNovoLivro] = useState({
         titulo: "",
         autor: "",
         ano_lancamento: ""
     })
+    const navigate = useNavigate()
 
-    
+
+    const adicionarLivro = async () => {
+
+        const response = await fetch("http://localhost:5000/livros", {method:"POST", headers:{"CONTENT-TYPE": "application/json"}, body: JSON.stringify(novoLivro)})
+
+        navigate("/acervo")
+
+    }
 
     const enviar = (event) => {
         event.preventDefault()
 
-        adicionarLivro(novoLivro)
+        adicionarLivro()
         
         setNovoLivro({
             titulo: "",
