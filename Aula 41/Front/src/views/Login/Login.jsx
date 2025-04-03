@@ -1,16 +1,37 @@
 import { useState } from "react"
 import "./Login.css"
+import { useNavigate } from "react-router-dom"
 
 
 function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
+    const navigate = useNavigate()
+
     const enviar = async (e) => {
         e.preventDefault()
         const response = await fetch("http://localhost:3000/login", { method: "POST", headers:{"CONTENT-TYPE": "application/json"}, body: JSON.stringify({ username: username, password: password }) })
 
-        alert(await response.text())
+
+        if (response.status == 500){
+            alert("LOGIN INVÁLIDO")
+            return
+        }
+
+        const dados = await response.json()
+
+        console.log(dados)
+
+        const token = dados['token']
+
+        console.log("TOKEN:", token)
+
+        localStorage.setItem('token', JSON.stringify(token))
+
+        navigate("/dashboard")
+
+
     }
 
     return (

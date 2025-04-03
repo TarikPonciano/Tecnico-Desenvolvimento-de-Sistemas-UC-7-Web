@@ -8,7 +8,7 @@ const PORT = 3000
 const app = express()
 const __dirname = path.resolve()
 const __usersdata = path.join(__dirname, "data", "users.json")
-const EXPIRATION_TIME = '1h'
+const EXPIRATION_TIME = '15s'
 const SECRET_KEY = "frase_secreta"
 
 app.use(express.json())
