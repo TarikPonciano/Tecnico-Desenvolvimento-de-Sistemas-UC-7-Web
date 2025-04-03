@@ -5,3 +5,8 @@ content-type: application/json
         "username": "admin",
         "password": "12345"
 }
+
+###
+
+GET http://localhost:3000/authenticate HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc0MzcxNzk3OSwiZXhwIjoxNzQzNzE3OTk5fQ.VhPpkHTZC6IlBj79FqWHYUb76S7-yBQdEsqoJD1KIFw

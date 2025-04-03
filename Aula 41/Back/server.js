@@ -44,6 +44,28 @@ app.post("/login", (req, res) => {
 
 })
 
+app.get("/authenticate", (req, res) => {
+
+    const authHeader = req.headers.authorization
+
+    if (!authHeader){
+        return res.status(500).send("Sem dados de autorização!")
+    }
+
+    const token = authHeader.split(" ")[1]
+
+    try {
+        jwt.verify(token, SECRET_KEY, (err, data) =>{
+            if (err){
+                return res.status(500).send("Token invalido")
+            }
+            return res.status(200).json({valid:true, user:data})
+        })
+    } catch (error) {
+        return res.status(500).send("Erro ao tentar autenticar!")
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Servidor iniciado no endereço http://localhost:${PORT} `)
 })

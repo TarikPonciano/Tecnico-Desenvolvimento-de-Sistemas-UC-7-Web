@@ -10,11 +10,11 @@ function Login() {
         e.preventDefault()
         const response = await fetch("http://localhost:3000/login", { method: "POST", headers:{"CONTENT-TYPE": "application/json"}, body: JSON.stringify({ username: username, password: password }) })
 
-        console.log(await response.text())
+        alert(await response.text())
     }
 
     return (
-        <div className="content">
+        <div className="content" >
             <form>
                 <label>Username</label>
                 <br />
