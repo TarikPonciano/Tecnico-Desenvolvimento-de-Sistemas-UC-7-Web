@@ -1,0 +1,13 @@
+GET http://localhost:3000/usuarios HTTP/1.1
+
+###
+
+POST http://localhost:3000/usuarios HTTP/1.1
+content-type: application/json
+
+{
+    "login":"tarik",
+    "password": "12345",
+    "email":"tarikponciano@gmail.com",
+    "data_nascimento": "2000-01-20"
+}
