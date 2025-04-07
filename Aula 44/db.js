@@ -24,7 +24,7 @@ export const getConnection = () =>{
     return pool
 }
 
-export const closedConnection = async () => {
+export const closeConnection = async () => {
     if (pool){
         await pool.end()
         pool = null
